@@ -35,8 +35,8 @@ These are the hashes assigned to be cracked and their cleartext.
   - Salt's clear text: slayer
 
 - D) Combination hash consisting of two dictionary words with a space between
-  - Note: Cracked using hashcat on a GPU in 4 minutes, as my calculated estimated time for this basic program was too 
-  long for me to run. However the program does work, as it can solve passwords closer to the top of the list.
+  - Note: Cracked using hashcat on a GPU in 4 minutes, as my calculated estimated time was too 
+  long for me to run on my system. However the program does work, as it can solve passwords closer to the top of the list.
   - Hash: 34302959e138917ce9339c0b30ec50e650ce6b40
   - Clear text: Alligator1 YpeKawOqO
   - Estimated time to crack: 8.3 days

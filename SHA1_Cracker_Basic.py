@@ -14,22 +14,20 @@ attemptCount = 0
 attemptCountSalt = 0
 solved = False
 
-if len(sys.argv) > 1:
-    goalHash = sys.argv[1].lower()
-    saltedQuestion = raw_input("Is this hash salted? (y/n) ")
-    if saltedQuestion == 'y':
-        salted = True
-        saltQuestion = raw_input("What is your salt? ")
-        hashOfSalt = saltQuestion.lower()
-    multiWordQuestion = raw_input("Does this hash consist of two dictionary words divided by a space? (y/n) ")
-    if multiWordQuestion == 'y':
+if len(sys.argv) > 3:
+    if(sys.argv[2] == "combination"):
         multiWord = True
+    if(sys.argv[3] == "salted"):
+        salted = True
+        if(len(sys.argv) > 4):
+            hashOfSalt = sys.argv[4].lower()
+    goalHash = sys.argv[1].lower()
     if salted and multiWord:
         print "This hash can not be brute forced by this program because it is a salted combination of dictionary terms."
     else:
         startTime = datetime.datetime.now()
         if not salted and not multiWord:
-            print("Solving unnsalted single word")
+            #print("Solving unnsalted single word")
             for x in lines:
                 attemptCount += 1
                 if hashlib.sha1(x).hexdigest() == goalHash:
@@ -37,12 +35,12 @@ if len(sys.argv) > 1:
                     solved = True
                     break
         elif not multiWord and salted:
-            print("Solving salted single word")
+            #print("Solving salted single word")
             for x in lines:
                 attemptCountSalt += 1
                 if hashlib.sha1(x).hexdigest() == hashOfSalt:
                     unhashedSalt = x
-                    print "Salt is: " + x
+                    # print "Salt is: " + x
                     print "Took " + str(attemptCountSalt) + " attempts to crack salt."
                     break
             if unhashedSalt != "":
@@ -74,9 +72,9 @@ if len(sys.argv) > 1:
                     continue
                 break
         if solved:
-            print("Time taken: " + str(datetime.datetime.now() - startTime))
-            print("Took " + str(attemptCount) + " attempts to crack input hash.")
+            print("Took " + str(attemptCount) + " attempts to crack input hash. Time Taken: " + str(datetime.datetime.now() - startTime))
         else:
             print "Hash not resolvable with current dictionary and parameters."
 else:
-    print "Please input the desired hash value to crack as a argument when you run the  application."
+    print "Please run the application with all necessary arguments. Example: python SHA1_Cracker_Basic.py ece4bb07f2580ed8b39aa52b7f7f918e43033ea1 non-combination salted f0744d60dd500c92c0d37c16174cc58d3c4bdd8e"
+    print "For more examples read the readme."

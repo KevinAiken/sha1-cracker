@@ -7,14 +7,14 @@ This repo includes a dictionary, a basic cracking application, and the assignmen
 
 ## How to Run
 
-Assuming you have a Python 2.7 environment configured, run `python Sha1_Cracker_Basic.py yourhashhere non-combination unsalted`from the 
+Assuming you have a Python 2.7 environment configured, run `python SHA1_Cracker_Basic.py yourhashhere non-combination unsalted` from the 
 terminal for a basic unsalted hash that is not a combination of dictionary terms. 
 
 Program arguments following the following format: `hash non-combination/combination unsalted/salted salt`
 
-Example to brute force a hash that is a combination of two words from the dictionary: `python Sha1_Cracker_Basic.py 34302959e138917ce9339c0b30ec50e650ce6b40 combination unsalted`
+Example to brute force a hash that is a combination of two words from the dictionary: `python SHA1_Cracker_Basic.py 34302959e138917ce9339c0b30ec50e650ce6b40 combination unsalted`
 
-Example for a salted password consisting of one word from the dictionary: `python Sha1_Cracker_Basic.py ece4bb07f2580ed8b39aa52b7f7f918e43033ea1 non-combination salted f0744d60dd500c92c0d37c16174cc58d3c4bdd8e`
+Example for a salted password consisting of one word from the dictionary: `python SHA1_Cracker_Basic.py ece4bb07f2580ed8b39aa52b7f7f918e43033ea1 non-combination salted f0744d60dd500c92c0d37c16174cc58d3c4bdd8e`
 
 ## Assignment Solutions with Basic Version
 
